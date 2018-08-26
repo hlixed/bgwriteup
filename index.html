@@ -1,0 +1,70 @@
+<!DOCTYPE html><html>
+<head><meta
+charset="utf-8"><meta
+name="viewport" content="width=device-width, initial-scale=1">
+	<title>Building Twitch Plays Pokemon's Graphics with WebGL</title>
+	<style type="text/css">body{
+		font-family: Times New Roman, Times, Arial;
+		margin:40px	auto;
+		line-height:1.6;
+		font-size:20px;
+		color:#252525;
+		margin:2em auto;
+		max-width:800px;
+		padding:1em;
+	}
+	h1,h2,h3{line-height:1.2;text-align: center;}
+	aside{font-size:18px; color:#555; text-align: center;}
+	iframe{
+	}
+</style>
+</head>
+<body>
+
+<header><h1>Building Twitch Plays Pokemon's Graphics with WebGL</h1>
+</header>
+
+<p>Hi! I'm hlixed, also known as 1hlixed or hlixed1, and in 2015, I built this:</p>
+
+<iframe height="500" width="100%" src="bettingcylinder-final/index.html"></iframe>
+
+
+<p>You can see this in the background of Twitch Plays Pokemon during most of the year, when the stream pits its chat against itself in competitive matches of Pokemon Battle Revolution. In this article, I'm going to take this background and explain how I made it, why I made it, and the greater context of just what Twitch Plays Pokemon's been up to since 2014. I've always loved technical breakdowns, but I'll do my best to explain what my thought process was at every stage.</p>
+
+<aside> Click <a href="#technical">here</a> to jump to the technical part of this article.</aside>
+
+<h2>Setting the Stage</h2><p>
+
+
+<p>The year was 2015. Twitch Plays Pokemon had successfully completed not just one, but five games of Pokemon by harnessing the power of the internet. Thousands of people had all dedicated their time and effort to (mostly) working as hard as possible to becoming a Pokemon master.</p>
+
+<p>Eventually, the stream began to experiment with other forms of chat-controlled interaction. Pokemon Stadium, a game for the N64, allowed players to see their pokemon battle it out in full 3D for the first time. Two teams of 3 pokemon would be displayed, and users could choose to bet virtual money on whatever team they wanted (denoted, of course, in the official Pokemon currency of <a href="https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dollar">pokedollars</a>). Then, the AI-controlled players would battle each other with random moves, and the winner would get their bet back. </p>
+
+<p>This proved to be incredibly popular with the TPP community. </p>
+
+<b>CONTINUE HERE</b>
+
+<h2> Project Revolution </h2>
+
+<p>Pokemon Stadium was a lot of fun to play, but it only included the 251 Pokemon from the first two generations of games. Slowly, people began to wonder if it was possible to play the next Stadium-type game in the Pokemon series: Pokemon Battle Revolution. PBR, as we called it, not only included the updated battle mechanics introduced in generations III and IV, but also a grand total of 493 Pokemon (and not to mention <a href="https://www.youtube.com/watch?v=HFS-dw3qGTM">some</a> <a href="https://www.youtube.com/watch?v=133qzK43IAQ">amazing</a> of <a href="https://www.youtube.com/watch?v=YOZV4iX4ZQU">music</a>). Playing it was sure to be fun!</p>
+
+<p>But because the Wii was a much more advanced console than the N64, there were many problems that stood in the way of making Pokemon Battle Revolution into something the chat could play. The stream overlay, for example, needed to be able to read the game's RAM in order to detect whether a 'mon had fainted or not (in order to allow users to vote which pokemon to send out next), and no RAM-editing functionality existed in Wii emulators. Selecting all pokemon meant having a save file with all pokemon ready-to-choose - but PBR's save file format wasn't known. Emulating Wii games was also processor-heavy, and the existing TPP hardware wasn't quite up to it. </p>
+
+<aside> Even the very concept of randomness itself posed a problem: PBR used a pseudorandom number generator to decide everything from . As it turned out, because the game was loaded from a savestate before battles started, the random number generator was generating the same pattern of randomness every game. Savvy players eventually realized this and began to exploit it: using an one-hit KO move on the second turn, which normally had a 30% accuracy, would result in a guaranteed KO!</aside>
+
+<p>Streamer publicly stated that if someone was willing to make a system to play Pokemon Battle Revolution, he'd be willing to use it. From there, it was only a matter of time. Eventually, a team of fans, including one by the name of EliteAinax17, assembled under the name of Project Revolution to create just that. After several months, EliteAinax began streaming test matches  on a newly-created Twitch account named ProjectRevoTPP (which he later adopted for personal use), and once the software was judged stable enough, the game was handed over to Streamer. On December 1st, 2014, Pokemon Battle Revolution <a href="https://www.youtube.com/watch?v=WIDJYOw9FsU">made its Twitch Plays Pokemon debut.</a> PBR still continues to be played today in between mainstream pokemon games.</p>
+
+<aside> TPP eventually got a <a href="https://dolphin-emu.org/blog/2015/10/01/dolphin-progress-report-september-2015/">shoutout in Dolphin's progress reports</a> for helping to find some memorable bugs in Dolphin. Sometimes textures wouldn't load properly, resulting in Pokemon using attacks made up of floating words. See for yourself; it's hilarious!</aside>
+
+<p>But as far as asthetics went, PBR was rather plain: Pokemon teams in the center, bettors on the left and right, and a small footer. We knew could do better.</p>
+
+<a name="technical"></a><h2> PBR2.0: The Technical Part Of This Article </h2>
+
+I first joined the stream as an one-person music team, adding new entries to the list of playable songs. I eventually wrote the code that handles bid inputs, created two webGL-based animations, made the music selection go haywire on april fools' day, and optimized the advanced AI built for Anniversary Crystal romhack from 30 seconds down to fast enough that we could afford to add another layer to the search tree.
+
+<p>Sometime after the release of PBR, Streamer began to float the idea of remaking the interface. In addition to lots of balancing changes, and a complete code rewrite, Streamer suggested in the private developer chatroom that it would be nice to have some sort of background to replace the static black; perhaps something based on Pokemon Battle Revolution's own menu background. I got to work.</p>
+
+Pokemon Battle Revolution's background looked somewhat like this:
+
+
+</body></html>
