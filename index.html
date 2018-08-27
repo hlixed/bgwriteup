@@ -89,11 +89,11 @@ Pokemon Battle Revolution's background looked like this:
 
 <p>I began by creating the orbiting circles. I knew from the beginning that I'd do this in webGL and Three.js, so it was simple enough to make an object to represent one circle, and create enough of them in a cylindrical pattern. I had some convenient pokeball textures lying around from a different project, so I used them to texture each circle:</p>
 
-<iframe height="500" width="100%" src="bettingcylinder-1n2nd/1.html"></iframe>
+<iframe height="500" width="100%" src="bettingcylinder-circles/1.html"></iframe>
 
 <p>Then, to match PBR's diagonal slant, I rotated and repositioned the camera until the circles looked like they were arranged diagonally. Doing that was simple enough: I pasted in some keyboard-and-mouse controls so I could interactively move the camera with my keyboard and mouse, flew around the scene until I found a good camera orientation, then logged the camera settings so I could just set them directly at the start of my code.</p>
 
-<figure><iframe height="500" width="100%" src="bettingcylinder-1n2nd/2.html"></iframe><figcaption>Instead of making circles move diagonally, the camera is rotated to give the illusion of complex movement. To better show what's going on, this camera alternates between the proper rotation and no rotation.</figcaption></figure>
+<figure><iframe height="500" width="100%" src="bettingcylinder-circles/2.html"></iframe><figcaption>Instead of making circles move diagonally, the camera is rotated to give the illusion of complex movement. To better show what's going on, this camera alternates between the proper rotation and no rotation.</figcaption></figure>
 
 <p>The circles looked good to me, so I figured it was time to work on the next stage of the background: what came behind the circles.</p>
 
@@ -103,7 +103,7 @@ Pokemon Battle Revolution's background looked like this:
 
 <p>Well, I was working with 3D models. And 3D models can have these nice things called "vertex colors". This, I decided, was the proper way to go.</p>
 
-<figure><iframe height="300" width="300" src="bettingcylinder-1n2nd/vertexcolors.html"></iframe><figcaption>A cube with random vertex colors.</figcaption></figure>
+<figure><iframe height="300" width="300" src="bettingcylinder-circles/vertexcolors.html"></iframe><figcaption>A cube with random vertex colors.</figcaption></figure>
 
 <p>All one needs to do is specify the color you want each vertex to be in a triangle, and the GPU will do all the blending by linearly interpolating each color together. Great!</p>
 
@@ -124,7 +124,7 @@ Pokemon Battle Revolution's background looked like this:
 
 <p>That produced a background that looked like this:</p>
 
-<figure><iframe height="500" width="100%" src="bettingcylinder-1n2nd/3.html"></iframe><figcaption>My first attempt at a background with vertex colors</figcaption></figure> <!-- commit 6421229 -->
+<figure><iframe height="500" width="100%" src="bettingcylinder-circles/3.html"></iframe><figcaption>My first attempt at a background with vertex colors</figcaption></figure> <!-- commit 6421229 -->
 
 <p>At this point, I noticed that the background behind those circles wasn't just static: it was pulsating. It seemed like a rainbow, where color would flow out of one triangle into its neighbors continually. I wanted to try and replicate that in my design.</p>
 
